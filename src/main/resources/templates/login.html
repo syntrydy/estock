@@ -11,6 +11,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet"></link>
 <link href="css/mdb.min.css" rel="stylesheet"></link>
 <link href="css/style.css" rel="stylesheet"></link>
+<link rel="icon" type="image/png" href="img/favicon.ico"></link>
 
 <style rel="stylesheet">
 html, body, .view {
@@ -21,12 +22,6 @@ html, body, .view {
 	background-color: transparent;
 }
 
-.customCenter {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .scrolling-navbar {
 	-webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
 	-moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
@@ -34,11 +29,15 @@ html, body, .view {
 }
 
 .top-nav-collapse {
-	background-color: #1C2331;
+	background-color: #073F52;
+}
+
+.mybtn{
+background-color: #073F52;
 }
 
 footer.page-footer {
-	background-color: #1C2331;
+	background-color: #073F52;
 	margin-top: -1px;
 }
 
@@ -59,87 +58,69 @@ footer.page-footer {
 	background-size: cover;
 	-webkit-background-size: cover;
 }
+
+.middle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 </style>
-<title>Welcome</title>
+<title>MyShop</title>
 </head>
 
 <body>
-
-	<!-- begin page content -->
-	<!-- space bar -->
-	<div class="call-to-action">
-		<div class="col-md-3"></div>
-		<div class="col-md-3"></div>
-		<div class="col-md-3"></div>
-	</div>
-	<footer class="page-footer center-on-small-only">
-		<div class="container-fluid">
-			<div class="row"></div>
-		</div>
-		<hr></hr>
-	</footer>
-	<div class="view">
-		<div class="customCenter">
-			<div class="card col-md-4">
-				<div class="card-block">
-					<div class="form-header darken-4">
-						<h3>
-							<span class="customCenter"> Secure login</span>
-						</h3>
-					</div>
-					<hr></hr>
-					<div class="md-form">
-						<i class="fa fa-envelope prefix"></i> <input type="text"
-							id="form2" class="form-control"></input> <label for="form2">Your
-							email</label>
-					</div>
-					<div class="md-form">
-						<i class="fa fa-lock prefix"></i> <input type="password"
-							id="form4" class="form-control"></input> <label for="form4">Your
-							password</label>
-					</div>
-					<div class="text-xs-center">
-						<button class="btn btn-deep-purple">Login</button>
-					</div>
-				</div>
-				<hr></hr>
-				<div class="modal-footer">
-					<div class="call form">
-						<br></br>
-						<p>
-							<span>Not a member?<a href="#">Sign Up</a>
-							</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>Forgot <a href="#">password?</a></span>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- footer -->
-	<footer class="page-footer center-on-small-only">
-		<div class="container-fluid">
-			<div class="row"></div>
-		</div>
-		<hr></hr>
+	<header>
 		<div class="call-to-action">
 			<div class="col-md-3"></div>
 			<div class="col-md-3"></div>
 			<div class="col-md-3"></div>
 		</div>
-		<div class="footer-copyright">
+		<footer class="page-footer center-on-small-only">
 			<div class="container-fluid">
-				© 2015-2016 ESTOCK: <a href="http://www.newitstuffs.com"> Thomas
-					Gasmyr Mougang </a>
+				<div class="row"></div>
+			</div>
+			<hr></hr>
+		</footer>
+	</header>
+
+
+	<div class="view  middle">
+		<div class="card col-md-4">
+			<div class="card-block">
+				<div class="form-header darken-4" style="background: #073F52;">
+					<h3>
+						<span class="fa fa-key">&nbsp;&nbsp;&nbsp;&nbsp;Secure login</span>
+					</h3>
+				</div>
+				<hr></hr>
+				<div class="md-form">
+					<i class="fa fa-envelope prefix"></i> <input type="text" id="form2"
+						class="form-control"></input> <label for="form2">Your
+						email</label>
+				</div>
+				<div class="md-form">
+					<i class="fa fa-lock prefix"></i> <input type="password" id="form4"
+						class="form-control"></input> <label for="form4">Your
+						password</label>
+				</div>
+				<div class="text-xs-center">
+					<button class="btn btn-deep-purple mybtn">Login</button>
+				</div>
+			</div>
+			<hr></hr>
+			<div class="modal-footer middle">
+				<div class="call form">
+					<br></br>
+					<p>
+						<span>Not a member? &nbsp;<a href="#">Sign Up</a>
+						</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>Forgot <a href="#">password?</a></span>
+					</p>
+				</div>
 			</div>
 		</div>
-	</footer>
+	</div>
+	<!-- footer -->
+	<footer th:replace="master_layout :: myfooter" id="footer"></footer>
 	<!--/.Footer-->
-
-	<!-- scripts -->
-	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-	<script type="text/javascript" src="js/tether.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/mdb.min.js"></script>
-
 </body>
 </html>
