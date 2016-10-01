@@ -1,0 +1,238 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:fragment="myhead">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<meta charset="utf-8"></meta>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+<meta http-equiv="x-ua-compatible" content="ie=edge"></meta>
+<title>E-STOCK</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"></link>
+<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="css/mdb.min.css" rel="stylesheet"></link>
+<link href="css/style.css" rel="stylesheet"></link>
+<style>
+body {
+	/* 	background: */
+	/* 		url("http://mdbootstrap.com/images/regular/nature/img%20(67)") */
+	/* 		no-repeat center center fixed; */
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+</style>
+</head>
+<body class="fixed-sn graphite-skin">
+	<header th:fragment="myheader">
+		<ul id="slide-out"
+			class="side-nav fixed custom-scrollbar ps-container ps-theme-default"
+			data-ps-id="7b4b6491-b56b-cc0e-10b6-2fee02780729"
+			style="transform: translateX(-100%);">
+			<li>
+				<div class="logo-wrapper sn-ad-avatar-wrapper">
+					<img src="img/gasmyr.jpg" class="img-fluid img-circle"></img>
+					<div class="rgba-stylish-strong">
+						<p class="user white-text">
+							Admin<br></br> gasmyrmougang@yahoo.fr
+						</p>
+					</div>
+				</div>
+			</li>
+			<!--/. Logo -->
+			<!-- Side navigation links -->
+			<li>
+				<ul class="collapsible collapsible-accordion">
+					<li><a href="/welcome"
+						class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-dashboard"></i> Overview<i
+							class="fa fa-angle-down rotate-icon"></i></a></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-sitemap"></i> Category<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/category/add" class="waves-effect">Add
+										new category</a></li>
+								<li><a href="/categories" class="waves-effect">show
+										categories</a></li>
+							</ul>
+						</div></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-database"></i>Items<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/item/add" class="waves-effect">Add new
+										item</a></li>
+								<li><a href="/items" class="waves-effect">Show items</a></li>
+							</ul>
+						</div></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-cubes"></i>Purchase<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/purchase/add" class="waves-effect">Add
+										new purchase</a></li>
+								<li><a href="/purchases" class="waves-effect">show
+										purchases</a></li>
+							</ul>
+						</div></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-truck"></i>Delivery<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/delivery/add" class="waves-effect">new
+										delivery</a></li>
+								<li><a href="/deliveries" class="waves-effect">show
+										deliveries</a></li>
+							</ul>
+						</div></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-cart-plus"></i>Order<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/order/add" class="waves-effect">new Order</a></li>
+								<li><a href="/orders" class="waves-effect">show orders</a></li>
+							</ul>
+						</div></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-users"></i> Customer<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/customer/add" class="waves-effect">Add
+										customer</a></li>
+								<li><a href="/customers" class="waves-effect">All
+										customers</a></li>
+							</ul>
+						</div></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-user-md"></i> Provider<i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/provider/add" class="waves-effect">Add
+										provider</a></li>
+								<li><a href="/providers" class="waves-effect">All
+										providers</a></li>
+							</ul>
+						</div></li>
+					<li><a class="collapsible-header waves-effect arrow-r"><i
+							class="fa fa-bar-chart"></i> Reports <i
+							class="fa fa-angle-down rotate-icon"></i></a>
+						<div class="collapsible-body" style="">
+							<ul>
+								<li><a href="/report/orderPerDay" class="waves-effect">Orders
+										per day</a></li>
+								<li><a href="/report/orderPerMonth" class="waves-effect">orders
+										per month</a></li>
+							</ul>
+						</div></li>
+				</ul>
+			</li>
+			<!--/. Side navigation links -->
+			<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+				<div class="ps-scrollbar-x" tabindex="0"
+					style="left: 0px; width: 0px;"></div>
+			</div>
+			<div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;">
+				<div class="ps-scrollbar-y" tabindex="0"
+					style="top: 0px; height: 0px;"></div>
+			</div>
+		</ul>
+		<nav class="navbar navbar-fixed-top scrolling-navbar double-nav">
+			<!-- SideNav slide-out button -->
+			<div class="pull-left">
+				<a href="/home" data-activates="slide-out" class="button-collapse"><i
+					class="fa fa-bars"></i></a>
+			</div>
+			<div class="breadcrumb-dn">
+				<p>E-STOCK</p>
+			</div>
+			<ul class="nav navbar-nav pull-right">
+				<li class="nav-item "><a
+					class="nav-link waves-effect waves-light"><i
+						class="fa fa-calculator"></i> <span class="hidden-sm-down">Calculator</span></a>
+				</li>
+				<li class="nav-item "><a
+					class="nav-link waves-effect waves-light"><i
+						class="fa fa-comments-o"></i> <span class="hidden-sm-down">Support</span></a></li>
+				<li class="nav-item dropdown"><a href="/profile"
+					class="nav-link dropdown-toggle waves-effect waves-light"
+					type="button" id="dropdownMenu1" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"><i
+						class="fa fa-user"></i> Account</a>
+					<div class="dropdown-menu dropdown-primary dd-right"
+						aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn"
+						data-dropdown-out="fadeOut">
+						<a class="fa fa-user dropdown-item waves-effect waves-light"
+							href="/profile">&nbsp;profile</a> <a
+							class="fa fa-eject dropdown-item waves-effect waves-light"
+							href="/changePassword">&nbsp;change password </a> <a
+							class="fa fa-power-off dropdown-item waves-effect waves-light"
+							href="/logout">&nbsp;logout</a>
+					</div></li>
+				<li class="nav-item dropdown"><a href="/currencies"
+					class="nav-link dropdown-toggle waves-effect waves-light"
+					type="button" id="dropdownMenu1" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i>
+						Settings</a>
+					<div class="dropdown-menu dropdown-primary dd-right"
+						aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn"
+						data-dropdown-out="fadeOut">
+						<a class="fa fa-usd dropdown-item waves-effect waves-light"
+							href="/currencies">&nbsp;Currencies</a> <a
+							class=" fa fa-deaf dropdown-item waves-effect waves-light"
+							href="/units">&nbsp;Units </a> <a
+							class="fa fa-wrench dropdown-item waves-effect waves-light"
+							href="/settings">&nbsp;Shop settings</a>
+					</div></li>
+			</ul>
+		</nav>
+	</header>
+	
+	
+	<!-- main content -->
+	<main class="">
+	<div th:fragment="maincontent" class="container-fluid text-xs-center" style="height: 79%;">
+
+
+	</div>
+	</main>
+
+	<footer th:fragment="myfooter"
+		class="page-footer center-on-small-only myfooter">
+		<div class="footer-copyright">
+			<div class="container-fluid">
+				© 2015-2016 ESTOCK: <a href="http://www.newitstuffs.com"> Thomas
+					Gasmyr Mougang </a>
+			</div>
+		</div>
+
+		<!-- scripts -->
+		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="js/tether.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/mdb.min.js"></script>
+		<script>
+			$(".button-collapse").sideNav();
+			var el = document.querySelector('.custom-scrollbar');
+			Ps.initialize(el);
+		</script>
+		<div class="drag-target"
+			style="left: 0px; touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+		</div>
+		<div class="hiddendiv common"></div>
+	</footer>
+</body>
+</html>

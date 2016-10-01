@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master_layout :: myhead">
+<title>Overview</title>
+</head>
+<body class="mainblock">
+	<div class="fixed-sn graphite-skin">
+		<header th:replace="master_layout :: myheader"></header>
+	</div>
+
+	<div class="container-fluid">
+		<div>
+			Now is: <b th:text="${execInfo.now.time}">date and time</b>
+		</div>
+		<ul class="list-group">
+			<li class="list-group-item"><span
+				class="tag bg-primary label-pill pull-xs-right">14</span> Cras justo
+				odio</li>
+			<li class="list-group-item"><span
+				class="tag bg-primary label-pill pull-xs-right">2</span> Dapibus ac
+				facilisis in</li>
+			<li class="list-group-item"><span
+				class="tag bg-primary label-pill pull-xs-right">1</span> Morbi leo
+				risus</li>
+		</ul>
+	</div>
+
+
+
+
+
+<!-- 	<div class="myfooter"> -->
+		<footer th:replace="master_layout :: myfooter" id="footer"></footer>
+<!-- 	</div> -->
+
+</body>
+</html>

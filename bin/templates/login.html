@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"></link>
+<!-- <link rel="stylesheet" href="css/font-awesome.min.css"></link> -->
+<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="css/mdb.min.css" rel="stylesheet"></link>
+<link href="css/style.css" rel="stylesheet"></link>
+
+<style rel="stylesheet">
+html, body, .view {
+	height: 92%;
+}
+
+.navbar {
+	background-color: transparent;
+}
+
+.customCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.scrolling-navbar {
+	-webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+	-moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+	transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.top-nav-collapse {
+	background-color: #1C2331;
+}
+
+footer.page-footer {
+	background-color: #1C2331;
+	margin-top: -1px;
+}
+
+@media only screen and (max-width: 768px) {
+	.navbar {
+		background-color: #1C2331;
+	}
+}
+
+.flex-center {
+	color: #fff;
+}
+
+.view {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+</style>
+<title>Welcome</title>
+</head>
+
+<body>
+
+	<!-- begin page content -->
+	<!-- space bar -->
+	<div class="call-to-action">
+		<div class="col-md-3"></div>
+		<div class="col-md-3"></div>
+		<div class="col-md-3"></div>
+	</div>
+	<footer class="page-footer center-on-small-only">
+		<div class="container-fluid">
+			<div class="row"></div>
+		</div>
+		<hr></hr>
+	</footer>
+	<div class="view">
+		<div class="customCenter">
+			<div class="card col-md-4">
+				<div class="card-block">
+					<div class="form-header darken-4">
+						<h3>
+							<span class="customCenter"> Secure login</span>
+						</h3>
+					</div>
+					<hr></hr>
+					<div class="md-form">
+						<i class="fa fa-envelope prefix"></i> <input type="text"
+							id="form2" class="form-control"></input> <label for="form2">Your
+							email</label>
+					</div>
+					<div class="md-form">
+						<i class="fa fa-lock prefix"></i> <input type="password"
+							id="form4" class="form-control"></input> <label for="form4">Your
+							password</label>
+					</div>
+					<div class="text-xs-center">
+						<button class="btn btn-deep-purple">Login</button>
+					</div>
+				</div>
+				<hr></hr>
+				<div class="modal-footer">
+					<div class="call form">
+						<br></br>
+						<p>
+							<span>Not a member?<a href="#">Sign Up</a>
+							</span> &nbsp;&nbsp;&nbsp;&nbsp;<span>Forgot <a href="#">password?</a></span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+	<footer class="page-footer center-on-small-only">
+		<div class="container-fluid">
+			<div class="row"></div>
+		</div>
+		<hr></hr>
+		<div class="call-to-action">
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container-fluid">
+				© 2015-2016 ESTOCK: <a href="http://www.newitstuffs.com"> Thomas
+					Gasmyr Mougang </a>
+			</div>
+		</div>
+	</footer>
+	<!--/.Footer-->
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="js/tether.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+
+</body>
+</html>

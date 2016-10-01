@@ -1,0 +1,11 @@
+/* my custom style */
+.mainblock {
+	min-height:100%;
+	margin-top: 5%;
+}
+
+.myfooter{
+   position:absolute;
+   bottom:0;
+   width:100%;
+}
