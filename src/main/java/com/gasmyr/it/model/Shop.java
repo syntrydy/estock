@@ -4,22 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "shop")
 public class Shop {
-
-	public Shop() {
-
-	}
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String name;
 	private String description;
 	private String email;
-	private String number;
+	private String phonenumber;
 	private String website;
+	private boolean isactive;
 
 	public long getId() {
 		return id;
@@ -53,12 +51,12 @@ public class Shop {
 		this.email = email;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getPhonenumber() {
+		return phonenumber;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
 	}
 
 	public String getWebsite() {
@@ -67,6 +65,14 @@ public class Shop {
 
 	public void setWebsite(String website) {
 		this.website = website;
+	}
+
+	public boolean isIsactive() {
+		return isactive;
+	}
+
+	public void setIsactive(boolean isactive) {
+		this.isactive = isactive;
 	}
 
 }

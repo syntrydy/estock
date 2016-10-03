@@ -15,11 +15,17 @@
 <title>MyShop</title>
 
 <!-- Font Awesome -->
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"></link> -->
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"></link> -->
+<!-- <link href="css/mdb.min.css" rel="stylesheet"></link> -->
+<!-- <link href="css/style.css" rel="stylesheet"></link> -->
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"></link>
-<link href="css/bootstrap.min.css" rel="stylesheet"></link>
-<link href="css/mdb.min.css" rel="stylesheet"></link>
-<link href="css/style.css" rel="stylesheet"></link>
+<link href="../css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="../css/mdb.min.css" rel="stylesheet"></link>
+<link href="../css/style.css" rel="stylesheet"></link>
 <style>
 body {
 	/* 	background: */
@@ -186,7 +192,7 @@ body {
 							class="fa fa-power-off dropdown-item waves-effect waves-light"
 							href="/logout">&nbsp;logout</a>
 					</div></li>
-				<li class="nav-item dropdown"><a href="/currencies"
+				<li class="nav-item dropdown"><a href="::currencies"
 					class="nav-link dropdown-toggle waves-effect waves-light"
 					type="button" id="dropdownMenu1" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i>
@@ -195,11 +201,11 @@ body {
 						aria-labelledby="dropdownMenu1" data-dropdown-in="fadeIn"
 						data-dropdown-out="fadeOut">
 						<a class="fa fa-usd dropdown-item waves-effect waves-light"
-							href="/currencies">&nbsp;Currencies</a> <a
+							href="/setting/currencies">&nbsp;Currencies</a> <a
 							class=" fa fa-deaf dropdown-item waves-effect waves-light"
-							href="/units">&nbsp;Units </a> <a
+							href="/setting/units">&nbsp;Units </a> <a
 							class="fa fa-wrench dropdown-item waves-effect waves-light"
-							href="/settings">&nbsp;Shop settings</a>
+							href="/shopinfo;">&nbsp;Shop settings</a>
 					</div></li>
 			</ul>
 		</nav>
@@ -218,16 +224,16 @@ body {
 		class="page-footer center-on-small-only myfooter">
 		<div class="footer-copyright">
 			<div class="container-fluid">
-				© 2015-2016 ESTOCK: <a href="http://www.newitstuffs.com"> Thomas
+				© 2015-2016 MyShop: <a href="http://www.newitstuffs.com"> by Thomas
 					Gasmyr Mougang </a>
 			</div>
 		</div>
 
 		<!-- scripts -->
-		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-		<script type="text/javascript" src="js/tether.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/mdb.min.js"></script>
+		<script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="../js/tether.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/mdb.min.js"></script>
 		<script>
 			$(".button-collapse").sideNav();
 			var el = document.querySelector('.custom-scrollbar');

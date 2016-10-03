@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "person")
+//@Entity
+//@Table(name = "person")
 public class Person {
 
 	public Person() {

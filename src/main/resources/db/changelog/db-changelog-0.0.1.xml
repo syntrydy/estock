@@ -1,0 +1,30 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+	<changeSet id="ES-01" author="gasmyr.mougang">
+		<createTable tableName="shop">
+			<column autoIncrement="true" name="id" type="int8">
+				<constraints primaryKey="true" primaryKeyName="shop_pkey"
+					nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(255)" />
+			<column name="email" type="varchar(255)" />
+			<column name="phonenumber" type="varchar(255)" />
+			<column name="website" type="varchar(255)" />
+			<column name="isactive" type="bool" defaultValue="false" />
+		</createTable>
+		<insert tableName="shop">
+			<column name="name" value="Atlancia Fashion" />
+			<column name="description" value="Atlancia Fashion best price for ever" />
+			<column name="email" value="atlancia@fashion.com" />
+			<column name="phonenumber" value="+237 696534361" />
+			<column name="website" value="http://www.atlanciafashion.com" />
+			<column name="isactive" valueBoolean="true" />
+		</insert>
+
+	</changeSet>
+</databaseChangeLog>

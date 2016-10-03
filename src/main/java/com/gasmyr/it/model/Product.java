@@ -11,8 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "product")
+//@Entity
+//@Table(name = "product")
 public class Product {
 
 	@Id

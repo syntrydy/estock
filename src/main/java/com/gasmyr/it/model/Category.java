@@ -14,8 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "category")
+//@Entity
+//@Table(name = "category")
 public class Category {
 	public Category() {
 

@@ -16,8 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
-@Table(name = "order")
+//@Entity
+//@Table(name = "order")
 public class Order {
 
 	public Order() {

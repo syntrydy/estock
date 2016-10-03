@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
+	
+	
 
 	@RequestMapping("/")
 	public String login(Model model) {
@@ -25,6 +27,5 @@ public class MainController {
 	@RequestMapping("/welcome")
 	public String welcome(Model model) {
 		return "dashboard";
-	}
-
+	}	
 }
