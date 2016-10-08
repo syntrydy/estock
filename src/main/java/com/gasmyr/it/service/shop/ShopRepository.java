@@ -1,4 +1,4 @@
-package com.gasmyr.it.service.interfaces;
+package com.gasmyr.it.service.shop;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;

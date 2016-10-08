@@ -1,4 +1,4 @@
-package com.gasmyr.it.controllers;
+package com.gasmyr.it.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

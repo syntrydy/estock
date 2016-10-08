@@ -1,4 +1,4 @@
-package com.gasmyr.it.service;
+package com.gasmyr.it.service.shop;
 
 import java.util.List;
 
@@ -8,8 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.gasmyr.it.model.Shop;
-import com.gasmyr.it.service.interfaces.ShopRepository;
-import com.gasmyr.it.service.interfaces.ShopService;
 
 @Service
 public class ShopServiceImpl implements ShopService {

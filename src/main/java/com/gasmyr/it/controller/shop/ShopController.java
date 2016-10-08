@@ -1,4 +1,4 @@
-package com.gasmyr.it.controllers;
+package com.gasmyr.it.controller.shop;
 
 import javax.validation.Valid;
 
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gasmyr.it.model.Shop;
-import com.gasmyr.it.service.interfaces.ShopService;
+import com.gasmyr.it.service.shop.ShopService;
 import com.gasmyr.it.utils.notification.NotificationService;
 
 @Controller

@@ -27,6 +27,7 @@ public class Location implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private String code;
 	private String description;
 	@Version
 	private Integer version;
@@ -65,6 +66,13 @@ public class Location implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 	public Shop getLocationshop() {
 		return locationshop;
 	}
@@ -77,6 +85,11 @@ public class Location implements Serializable {
 	@Override
 	public String toString() {
 		return super.toString();
+	}
+	public void update(Location location) {
+		this.name = location.getName();
+		this.description = location.getDescription();
+		this.code = location.getCode();
 	}
 
 	
