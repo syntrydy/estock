@@ -30,8 +30,11 @@ public class Shop implements Serializable {
 	private Boolean isactive;
 	@Version
 	private Integer version;
-	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoryshop", cascade = CascadeType.ALL)
 	private List<Category> categories;
+	
+	@OneToMany(mappedBy = "locationshop", cascade = CascadeType.ALL)
+	private List<Location> locations;
 
 	public Long getId() {
 		return id;

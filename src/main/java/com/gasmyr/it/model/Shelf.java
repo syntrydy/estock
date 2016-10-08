@@ -13,27 +13,28 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table(name = "category")
-public class Category implements Serializable {
+@Table(name = "shelf")
+public class Shelf implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1060178291720896567L;
+	private static final long serialVersionUID = 2646529150257790310L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column(nullable = false)
 	private String name;
+	@Column(nullable = false)
+	private String code;
 	private String description;
+
+	@ManyToOne
+	@JoinColumn(name = "location_id", referencedColumnName = "id", nullable = false)
+	private Location locationshelf;
+
 	@Version
 	private Integer version;
-	@ManyToOne
-	@JoinColumn(name = "parent_id", referencedColumnName = "id", nullable = true)
-	private Category parent;
-	@ManyToOne
-	@JoinColumn(name = "shop_id", referencedColumnName = "id", nullable = false)
-	private Shop categoryshop;
 
 	public long getId() {
 		return id;
@@ -51,6 +52,14 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -59,21 +68,14 @@ public class Category implements Serializable {
 		this.description = description;
 	}
 
-	public Category getParent() {
-		return parent;
+	public Location getLocationshelf() {
+		return locationshelf;
 	}
 
-	public void setParent(Category parent) {
-		this.parent = parent;
+	public void setLocationshelf(Location locationshelf) {
+		this.locationshelf = locationshelf;
 	}
-
-	public Shop getCategoryshop() {
-		return categoryshop;
-	}
-
-	public void setCategoryshop(Shop categoryshop) {
-		this.categoryshop = categoryshop;
-	}
-
+	
+	
 
 }
