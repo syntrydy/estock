@@ -1,30 +1,25 @@
 package com.gasmyr.it.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
-//@Entity
-//@Table(name = "product")
+@Entity
+@Table(name = "product")
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
 	private String name;
 	private String description;
-	@ManyToOne
-	private Category mainCategory;
-	@ManyToMany(mappedBy="products")
-	private List<Category> categories;
+	@Version
+	private Integer version;
 
 	public long getId() {
 		return id;
@@ -49,21 +44,4 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public Category getMainCategory() {
-		return mainCategory;
-	}
-
-	public void setMainCategory(Category mainCategory) {
-		this.mainCategory = mainCategory;
-	}
-
-	public List<Category> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
-
 }

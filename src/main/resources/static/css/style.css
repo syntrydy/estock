@@ -5,7 +5,6 @@
 }
 
 .myfooter {
-	/* 	position: absolute; */
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -29,5 +28,6 @@
 }
 
 .main {
-	margin-bottom: 4%;
+	height: 100%;
+	min-height: 60%;
 }

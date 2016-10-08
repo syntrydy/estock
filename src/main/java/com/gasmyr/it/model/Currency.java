@@ -6,14 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "currency")
+@Entity
+@Table(name = "currency")
 public class Currency {
-
-	public Currency() {
-
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;

@@ -1,5 +1,6 @@
 package com.gasmyr.it.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -15,17 +16,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 //@Entity
 //@Table(name = "order")
-public class Order {
-
-	public Order() {
-
-	}
-
+public class Order implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1004070807057458567L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String key;
 	private String description;
@@ -35,14 +36,11 @@ public class Order {
 	private PaymentStatus paymentStatus = PaymentStatus.NotPaid;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date currentDate;
-	@ManyToOne
-	@JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
-	private Customer customer;
+	@Version
+	private Integer version;
 	@ManyToOne
 	@JoinColumn(name = "shop_id", referencedColumnName = "id", nullable = false)
 	private Shop shop;
-	@OneToMany(mappedBy = "order")
-	private List<OrderEntry> entries;
 
 	public Long getId() {
 		return id;
@@ -91,29 +89,14 @@ public class Order {
 	public void setCurrentDate(Date currentDate) {
 		this.currentDate = currentDate;
 	}
+//	public Shop getShop() {
+//		return shop;
+//	}
+//
+//	public void setShop(Shop shop) {
+//		this.shop = shop;
+//	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	public Shop getShop() {
-		return shop;
-	}
-
-	public void setShop(Shop shop) {
-		this.shop = shop;
-	}
-
-	public List<OrderEntry> getEntries() {
-		return entries;
-	}
-
-	public void setEntries(List<OrderEntry> entries) {
-		this.entries = entries;
-	}
+	
 
 }

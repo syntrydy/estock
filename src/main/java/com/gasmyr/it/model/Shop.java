@@ -1,29 +1,43 @@
 package com.gasmyr.it.model;
 
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "shop")
-public class Shop {
+public class Shop implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6503130601922044400L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	private String name;
 	private String description;
 	private String email;
 	private String phonenumber;
 	private String website;
-	private boolean isactive;
+	private Boolean isactive;
+	@Version
+	private Integer version;
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+	private List<Category> categories;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -67,11 +81,11 @@ public class Shop {
 		this.website = website;
 	}
 
-	public boolean isIsactive() {
+	public Boolean isIsactive() {
 		return isactive;
 	}
 
-	public void setIsactive(boolean isactive) {
+	public void setIsactive(Boolean isactive) {
 		this.isactive = isactive;
 	}
 

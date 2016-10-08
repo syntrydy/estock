@@ -1,6 +1,6 @@
 package com.gasmyr.it.model;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,33 +8,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
-//@Entity
-//@Table(name = "category")
-public class Category {
-	public Category() {
+@Entity
+@Table(name = "category")
+public class Category implements Serializable {
 
-	}
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1060178291720896567L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	@Column(nullable = false)
 	private String name;
 	private String description;
+	@Version
+	private Integer version;
 	@ManyToOne
-	@JoinColumn(name = "parent_id", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "parent_id", referencedColumnName = "id", nullable = true)
 	private Category parent;
-	@ManyToMany
-	@OrderBy(value = "name")
-	@JoinTable(name = "category_product")
-	private List<Product> products;
-//	private List<Category> childs;
+	@ManyToOne
+	@JoinColumn(name = "shop_id", referencedColumnName = "id", nullable = false)
+	private Shop owner;
 
 	public long getId() {
 		return id;
@@ -58,6 +57,22 @@ public class Category {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Category getParent() {
+		return parent;
+	}
+
+	public void setParent(Category parent) {
+		this.parent = parent;
+	}
+
+	public Shop getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Shop owner) {
+		this.owner = owner;
 	}
 
 }
