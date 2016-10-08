@@ -27,7 +27,8 @@
 	text-align: center;
 }
 
-.main {
-	height: 100%;
-	min-height: 60%;
+.floatingButton {
+	position: absolute;
+    top: 5%;
+    right:4%;
 }

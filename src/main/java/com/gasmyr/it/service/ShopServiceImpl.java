@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.gasmyr.it.model.Shop;
 import com.gasmyr.it.service.interfaces.ShopRepository;
-import com.gasmyr.it.service.interfaces.Shopable;
+import com.gasmyr.it.service.interfaces.ShopService;
 
 @Service
-public class ShopServiceImpl implements Shopable {
+public class ShopServiceImpl implements ShopService {
 
 	@Autowired
 	private ShopRepository shopRepository;
@@ -61,8 +61,11 @@ public class ShopServiceImpl implements Shopable {
 	@Override
 	public void update(Long id, Shop shop) {
 		Shop oldshop = shopRepository.findOne(id);
-		oldshop = shop;
-		shopRepository.save(oldshop);
+		if (oldshop != null) {
+			oldshop.update(shop);
+			shopRepository.save(oldshop);
+		}
+
 	}
 
 }

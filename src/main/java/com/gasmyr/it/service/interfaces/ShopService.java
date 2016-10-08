@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.gasmyr.it.model.Shop;
 
-public interface Shopable {
+public interface ShopService {
 
 	void add(Shop shop);
 

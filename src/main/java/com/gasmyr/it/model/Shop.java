@@ -89,4 +89,14 @@ public class Shop implements Serializable {
 		this.isactive = isactive;
 	}
 
+	public void update(Shop shop) {
+		this.name = shop.getName();
+		this.description = shop.getDescription();
+		this.email = shop.getEmail();
+		this.phonenumber = shop.getPhonenumber();
+		this.website = shop.getWebsite();
+		this.isactive = shop.isIsactive();
+
+	}
+
 }

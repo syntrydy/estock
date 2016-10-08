@@ -35,4 +35,12 @@ dependencies {
 	runtime('org.postgresql:postgresql')
 	runtime('org.liquibase:liquibase-core')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('info.cukes:cucumber-spring:1.2.4')
+	testCompile('info.cukes:cucumber-junit:1.2.4')
+	testCompile('info.cukes:cucumber-java:1.2.4')
+	testCompile('info.cukes:cucumber-jvm:1.2.4')
+	testCompile('info.cukes:cucumber-core:1.2.4')
+	testCompile('commons-io:commons-io')
+	testCompile('org.seleniumhq.selenium:selenium-java')
+	testCompile('org.seleniumhq.selenium:selenium-firefox-driver')
 }

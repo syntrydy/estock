@@ -16,31 +16,38 @@
 			<div class="card-block">
 				<table class="table">
 					<thead class="special-color myborderraduis">
-						<tr class="special-color teal-text">
+						<tr class="special-color" style="color: #FFFFFF;">
 							<th>Name</th>
 							<th>Description</th>
 							<th>Phone Number</th>
 							<th>Status</th>
-							<th>Actions <a class="fa fa-plus text-xs-right"
-								style="color: #FFFFFF; text-align: right;"
-								href="/ShopAddPage">Add</a></th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="shop : ${shopinfo.getContent()}">
-							<td th:text="${shop.name}"><a th:href="@{/shop/{id}/detail(id=${shop.id})}"></a></td>
+							<td th:text="${shop.name}"></td>
 							<td th:text="${shop.description}"></td>
 							<td th:text="${shop.phonenumber}"></td>
 							<td th:text="${shop.isactive}"></td>
-							<td><a th:href="@{/shop/{id}/detail(id=${shop.id})}"
+							<td><a th:href="@{/shopdetail(id=${shop.id})}"
 								class="blue-text"><i class="fa fa-user"></i></a> <a
-								th:href="@{/shop/{id}/update(id=${shop.id})}" class="teal-text"><i
+								th:href="@{/updateshop(id=${shop.id})}" class="teal-text"><i
 									class="fa fa-pencil"></i></a> <a
 								th:href="@{/shop/{id}/delete(id=${shop.id})}" class="red-text"><i
 									class="fa fa-times"></i></a></td>
 						</tr>
 					</tbody>
 				</table>
+
+				<!-- Add shop button -->
+				<div class="floatingButton">
+					<a class="btn-floating btn-xsmall warning-color-dark text-xs-right"
+						style="color: #dd2c00; text-align: right;" href="/ShopAddPage"
+						data-toggle="tooltip" data-placement="left" title="Add new shop">
+						<i class="fa fa-plus blue-text"></i>
+					</a>
+				</div>
 				<!-- paginator -->
 				<div class="paginator">
 					<div>

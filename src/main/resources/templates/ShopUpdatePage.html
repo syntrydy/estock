@@ -10,12 +10,15 @@
 	<div class="fixed-sn graphite-skin">
 		<header th:replace="master_layout :: myheader"></header>
 	</div>
+
 	<div class="container-fluid">
 		<div class="card col-md-12 text-xs-center">
-			<h3 class="card-header special-color white-text">Filled the new shop information</h3>
+			<h3 class="card-header special-color white-text">Edit shop
+				information</h3>
 			<div class="card-block">
-				<form action="#" th:action="@{/shop/create}" th:object="${shop}"
-					method="post">
+				<!-- hide shop id -->
+				<form action="#" th:action="@{/shop/{id}/update(id=${shop.id})}" th:object="${shop}"
+					method="POST">
 					<!--First row-->
 					<div class="row">
 						<div class="col-md-4">
@@ -42,7 +45,7 @@
 						</div>
 					</div>
 					<!--/.First row-->
-					<!-- second row -->
+					<!-- 					second row -->
 					<div class="row">
 						<div class="col-md-4">
 							<div class="md-form">
@@ -73,15 +76,13 @@
 					<!-- /second row -->
 					<hr />
 					<div class="row container spacer">
-						<div class="col-md-4">
+						<div class="col-md-6">
 								<a th:href="@{/ShopListPage}"
 									class="fa fa-list btn btn-primary btn-rounded special-color">&nbsp;Back</a>
 						</div>
-						<div class="col-md-4">
-								<button type="reset" class="fa fa-history btn special-color btn-rounded btn-primary">&nbsp;Reset</button>
-						</div>
-						<div class="col-md-4">
-								<button type="submit" class="fa fa-save btn btn-primary btn-rounded special-color">&nbsp;Save</button>
+						<div class="col-md-6">
+								<button type="submit"
+									class="fa fa-save btn btn-primary btn-rounded special-color">&nbsp;Update</button>
 						</div>
 					</div>
 				</form>

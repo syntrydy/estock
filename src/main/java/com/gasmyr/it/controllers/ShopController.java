@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gasmyr.it.model.Shop;
-import com.gasmyr.it.service.ShopServiceImpl;
+import com.gasmyr.it.service.interfaces.ShopService;
 import com.gasmyr.it.utils.notification.NotificationService;
 
 @Controller
 public class ShopController {
 
 	@Autowired
-	ShopServiceImpl shopService;
+	ShopService shopService;
 
 	@Autowired
 	NotificationService notificationService;
@@ -47,7 +47,19 @@ public class ShopController {
 		model.addAttribute("shop", new Shop());
 		return "/ShopAddPage";
 	}
-	
+
+	@RequestMapping(value = "/updateshop", method = RequestMethod.GET)
+	public String goToShopUpdatePage(@RequestParam long id, Model model) {
+		model.addAttribute("shop", shopService.findById(id));
+		return "/ShopUpdatePage";
+	}
+
+	@RequestMapping(value = "/shopdetail", method = RequestMethod.GET)
+	public String goToShopDetailPage(@RequestParam long id, Model model) {
+		model.addAttribute("shop", shopService.findById(id));
+		return "/ShopDetailPage";
+	}
+
 	@RequestMapping(value = "/shop/create", method = RequestMethod.POST)
 	public String saveShop(@Valid Shop shop, BindingResult bindingResult) {
 		shopService.add(shop);
@@ -55,11 +67,12 @@ public class ShopController {
 		return "redirect:/ShopListPage";
 	}
 
-	@RequestMapping(value = "/shop/{id}/update", method = { RequestMethod.PUT, RequestMethod.PATCH })
-	public String updateShop(@PathVariable Long id, Shop shop, Model model) {
+	@RequestMapping(value = "/shop/{id}/update", method = { RequestMethod.POST, RequestMethod.PUT,
+			RequestMethod.PATCH })
+	public String updateShop(@PathVariable Long id, @Valid Shop shop, Model model, BindingResult bindingResult) {
 		shopService.update(id, shop);
 		notificationService.addNotificationSuccessMessage("Shop has been succefully update");
-		return "redirect:/ShopDetailPage";
+		return "redirect:/ShopListPage";
 	}
 
 	@RequestMapping(value = "/shop/{id}/delete")
@@ -68,12 +81,4 @@ public class ShopController {
 		notificationService.addNotificationSuccessMessage("Shop has been succefully delete");
 		return "redirect:/ShopListPage";
 	}
-	
-	@RequestMapping(value = "/shop/{id}/detail", method = RequestMethod.GET)
-	public String goToShopDetailPage(@PathVariable Long id, Model model) {
-		model.addAttribute("dshop", shopService.findById(id));
-		return "/ShopDetailPage";
-	}
-
-
 }
