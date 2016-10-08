@@ -16,6 +16,7 @@
 			<column name="phonenumber" type="varchar(255)" />
 			<column name="website" type="varchar(255)" />
 			<column name="isactive" type="bool" defaultValue="false" />
+			<column name="version" type="int8" />
 		</createTable>
 		<insert tableName="shop">
 			<column name="name" value="Atlancia Fashion" />
@@ -24,7 +25,34 @@
 			<column name="phonenumber" value="+237 696534361" />
 			<column name="website" value="http://www.atlanciafashion.com" />
 			<column name="isactive" valueBoolean="true" />
+			<column name="version" type="1" />
 		</insert>
+		<createTable tableName="category">
+			<column autoIncrement="true" name="id" type="int8">
+				<constraints primaryKey="true" primaryKeyName="category_pkey"
+					nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(255)" />
+			<column name="version" type="int8" />
+		</createTable>
+		<createTable tableName="order">
+			<column autoIncrement="true" name="id" type="int8">
+				<constraints primaryKey="true" primaryKeyName="order_pkey"
+					nullable="false" />
+			</column>
+			<column name="key" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(255)" />
+			<column name="amountToPay" type="double" />
+			<column name="recievedAmount" type="double" />
+			<column name="paymentStatus" type="varchar(255)" defaultValue="NotPaid" />
+			<column name="currentDate" type="datetime" />
+			<column name="version" type="int8" />
+		</createTable>
 
 	</changeSet>
 </databaseChangeLog>
