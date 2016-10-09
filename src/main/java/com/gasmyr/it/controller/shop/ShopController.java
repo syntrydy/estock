@@ -1,5 +1,8 @@
 package com.gasmyr.it.controller.shop;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.gasmyr.it.model.Shop;
 import com.gasmyr.it.service.shop.ShopService;
@@ -21,6 +25,8 @@ import com.gasmyr.it.utils.notification.NotificationService;
 
 @Controller
 public class ShopController {
+
+	public static final String uploadfilesPath = System.getProperty("user.dir") + "/uploadingdir/";
 
 	@Autowired
 	ShopService shopService;
@@ -61,10 +67,20 @@ public class ShopController {
 	}
 
 	@RequestMapping(value = "/shop/create", method = RequestMethod.POST)
-	public String saveShop(@Valid Shop shop, BindingResult bindingResult) {
+	public String saveShop(@Valid Shop shop, BindingResult bindingResult,
+			@RequestParam("files") MultipartFile[] files) throws IllegalStateException, IOException {
 		shopService.add(shop);
 		notificationService.addNotificationSuccessMessage("Your change has been succefully save");
+		handleUploadsFiles(files);
 		return "redirect:/ShopListPage";
+	}
+
+	private void handleUploadsFiles(MultipartFile[] files) throws IllegalStateException, IOException {
+		for (MultipartFile uploadedFile : files) {
+			File file = new File(uploadfilesPath + uploadedFile.getOriginalFilename());
+			uploadedFile.transferTo(file);
+		}
+
 	}
 
 	@RequestMapping(value = "/shop/{id}/update", method = { RequestMethod.POST, RequestMethod.PUT,

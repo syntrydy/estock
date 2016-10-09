@@ -34,62 +34,71 @@ public class Location implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "shop_id", referencedColumnName = "id", nullable = false)
 	private Shop locationshop;
-	
-	
+
 	@OneToMany(mappedBy = "locationshelf", cascade = CascadeType.ALL)
 	private List<Shelf> shelves;
-	
+
 	public List<Shelf> getShelves() {
 		return shelves;
 	}
+
 	public void setShelves(List<Shelf> shelves) {
 		this.shelves = shelves;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public String getCode() {
 		return code;
 	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	public Shop getLocationshop() {
 		return locationshop;
 	}
+
 	public void setLocationshop(Shop locationshop) {
 		this.locationshop = locationshop;
 	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	@Override
-	public String toString() {
-		return this.name+ " "+this.code+" "+this.description+" "+ this.locationshop.getId();
-	}
+
 	public void update(Location location) {
 		this.name = location.getName();
 		this.description = location.getDescription();
 		this.code = location.getCode();
-		this.locationshop=location.getLocationshop();
+		this.locationshop = location.getLocationshop();
 	}
 
-	
-	
+	@Override
+	public String toString() {
+		return this.name + " " + this.code + " " + this.description + " " + this.locationshop.getId();
+	}
 }

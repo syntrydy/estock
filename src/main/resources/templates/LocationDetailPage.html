@@ -12,9 +12,10 @@
 	</div>
 	<div class="container-fluid">
 		<div class="card col-md-12 text-xs-center">
-			<h3 class="card-header special-color white-text">Shop details</h3>
+			<h3 class="card-header special-color white-text">Location
+				details</h3>
 			<div class="card-block">
-				<form action="#" th:object="${shop}">
+				<form action="#" th:object="${location}">
 					<!--First row-->
 					<div class="row">
 						<div class="col-md-4">
@@ -22,7 +23,7 @@
 								<label class="card-text black-text" for="name">Name:</label>
 							</div>
 							<div class="md-form col-md-3">
-								<label class="teal-text" th:text="${shop.name}"></label>
+								<label class="teal-text" th:text="${location.name}"></label>
 							</div>
 						</div>
 						<div class="col-md-4">
@@ -30,60 +31,53 @@
 								<label class="card-text black-text" for="name">Description:</label>
 							</div>
 							<div class="md-form col-md-6">
-								<label class="teal-text" th:text="${shop.description}"></label>
+								<label class="teal-text" th:text="${location.description}"></label>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="md-form col-md-2">
-								<label class="card-text black-text fa fa-envelope" for="name"></label>
+								<label class="card-text black-text" for="code">Code</label>
 							</div>
 							<div class="md-form col-md-3">
-								<label class="teal-text" th:text="${shop.email}"></label>
+								<label class="teal-text" th:text="${location.code}"></label>
 							</div>
 						</div>
 					</div>
 					<!--/.First row-->
-					<div><br/><br/></div>
+					<div>
+						<br /> <br />
+					</div>
 					<div class="row">
+						<div class="col-md-4"></div>
 						<div class="col-md-4">
-							<div class="md-form col-md-2">
-								<label class="card-text black-text fa fa-mobile-phone" for="phonenumber"></label>
+							<div class="md-form col-md-3 text-xs-center">
+								<label class="card-text black-text text-xs-center"
+									for="locationshop">Shop:</label>
 							</div>
-							<div class="md-form col-md-5">
-								<label class="teal-text" th:text="${shop.phonenumber}"></label>
+							<div class="md-form col-md-4 text-xs-center">
+								<label class="teal-text text-xs-center"
+									th:text="${location.locationshop.name}"></label>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="md-form col-md-3">
-								<label class="card-text black-text fa fa-firefox" for="website"></label>
-							</div>
-							<div class="md-form col-md-6">
-								<label class="teal-text" th:text="${shop.website}"></label>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="md-form col-md-3">
-								<label class="card-text black-text" for="isactive">Is active? </label>
-							</div>
-							<div class="md-form col-md-3">
-								<label class="teal-text" th:text="${shop.isactive}"></label>
-							</div>
-						</div>
+						<div class="col-md-4"></div>
 					</div>
 					<!-- /second row -->
-					<div><br/><br/></div>
+					<div>
+						<br /> <br />
+					</div>
 					<hr />
 					<div class="row container spacer">
 						<div class="col-md-4">
-							<a th:href="@{/ShopListPage}"
+							<a th:href="@{/LocationListPage}"
 								class="fa fa-list btn btn-primary btn-rounded special-color">&nbsp;Back</a>
 						</div>
 						<div class="col-md-4">
-							<a th:href="@{/LocationAddPage}"
-								class="fa fa-plus btn btn-primary btn-rounded special-color">&nbsp;Add location</a>
+							<a th:href="@{/LocationListPage}"
+								class="fa fa-plus btn btn-primary btn-rounded special-color">&nbsp;Add
+								shelf</a>
 						</div>
 						<div class="col-md-4">
-							<a th:href="@{/updateshop(id=${shop.id})}"
+							<a th:href="@{/updatelocation(id=${location.id})}"
 								class="fa fa-edit btn btn-primary btn-rounded special-color">&nbsp;Edit</a>
 						</div>
 					</div>

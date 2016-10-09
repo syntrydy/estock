@@ -12,10 +12,11 @@
 	</div>
 	<div class="container-fluid">
 		<div class="card col-md-12 text-xs-center">
-			<h3 class="card-header special-color white-text">Filled the new shop information</h3>
+			<h3 class="card-header special-color white-text">Filled the new
+				shop information</h3>
 			<div class="card-block">
 				<form action="#" th:action="@{/shop/create}" th:object="${shop}"
-					method="post">
+					method="post" enctype="multipart/form-data">
 					<!--First row-->
 					<div class="row">
 						<div class="col-md-4">
@@ -70,18 +71,38 @@
 						</div>
 
 					</div>
+					<div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-6">
+							<div class="md-form">
+								<div class="file-field">
+									<div class="btn default-color-dark">
+										<span>Chooce a picture</span> <input
+											type="file" name="files"   />
+									</div>
+									<div class="file-path-wrapper">
+										<input th:field="*{logo}" id="logo" class="file-path validate" type="text"
+											placeholder="Upload shop image" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
 					<!-- /second row -->
 					<hr />
 					<div class="row container spacer">
 						<div class="col-md-4">
-								<a th:href="@{/ShopListPage}"
-									class="fa fa-list btn btn-primary btn-rounded special-color">&nbsp;Back</a>
+							<a th:href="@{/ShopListPage}"
+								class="fa fa-list btn btn-primary btn-rounded special-color">&nbsp;Back</a>
 						</div>
 						<div class="col-md-4">
-								<button type="reset" class="fa fa-history btn special-color btn-rounded btn-primary">&nbsp;Reset</button>
+							<button type="reset"
+								class="fa fa-history btn special-color btn-rounded btn-primary">&nbsp;Reset</button>
 						</div>
 						<div class="col-md-4">
-								<button type="submit" class="fa fa-save btn btn-primary btn-rounded special-color">&nbsp;Save</button>
+							<button type="submit"
+								class="fa fa-save btn btn-primary btn-rounded special-color">&nbsp;Save</button>
 						</div>
 					</div>
 				</form>

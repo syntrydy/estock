@@ -28,6 +28,15 @@ public class Shop implements Serializable {
 	private String phonenumber;
 	private String website;
 	private Boolean isactive;
+	private String logo;
+	
+	public String getLogo() {
+		return logo;
+	}
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
 	@Version
 	private Integer version;
 	@OneToMany(mappedBy = "categoryshop", cascade = CascadeType.ALL)
@@ -88,6 +97,7 @@ public class Shop implements Serializable {
 		return isactive;
 	}
 
+	
 	public void setIsactive(Boolean isactive) {
 		this.isactive = isactive;
 	}
@@ -99,7 +109,7 @@ public class Shop implements Serializable {
 		this.phonenumber = shop.getPhonenumber();
 		this.website = shop.getWebsite();
 		this.isactive = shop.isIsactive();
-
+		this.logo=shop.getLogo();
 	}
 
 }
