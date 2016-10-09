@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master_layout :: myhead">
+<title>MyShop</title>
+</head>
+<body class="mainblock">
+	<div class="fixed-sn graphite-skin">
+		<header th:replace="master_layout :: myheader"></header>
+	</div>
+
+	<div class="container-fuild">
+		<div class="card col-md-12 text-xs-center">
+			<div class="card-block">
+				<table class="table">
+					<thead class="special-color myborderraduis">
+						<tr class="special-color" style="color: #FFFFFF;">
+							<th>Name</th>
+							<th>Code</th>
+							<th>Description</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="text-xs-left">
+						<tr th:each="location : ${locations.getContent()}">
+							<td th:text="${location.name}"></td>
+							<td th:text="${location.code}"></td>
+							<td th:text="${location.description}"></td>
+							<td><a th:href="@{/locationdetail(id=${location.id})}" class="blue-text"><i class="fa fa-user"></i></a> 
+								<a th:href="@{/updatelocation(id=${location.id})}" class="teal-text"><i class="fa fa-pencil"></i></a> 
+								<a th:href="@{/location/{id}/delete(id=${location.id})}" class="red-text"><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<!-- Add shop button -->
+				<div class="floatingButton">
+					<a class="btn-floating btn-xsmall warning-color-dark text-xs-right"
+						style="color: #dd2c00; text-align: right;" href="/LocationAddPage"
+						data-toggle="tooltip" data-placement="left" title="Add new location">
+						<i class="fa fa-plus blue-text"></i>
+					</a>
+				</div>
+				<!-- paginator -->
+				<div class="paginator">
+					<div>
+						<nav>
+							<ul class="pagination pg-darkgrey">
+								<!--Arrow left-->
+								<li class="page-item"><a class="page-link"
+									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+										<span class="sr-only">Previous</span>
+								</a></li>
+								<li th:each="i : ${#numbers.sequence(1,totalpage)}"
+									th:classappend="${i == currentpage? 'active' : 'page-item' }"
+									class="page-item"><a
+									th:href="@{${url}(page=${i-1},size=${locations.size})}"
+									th:text="${i}" class="page-link"></a></li>
+								<!--Arrow right-->
+								<li th:if="${i!=totalpage}" class="page-item"><a
+									th:if="${i!=totalpage}" class="page-link" aria-label="Next">
+										<span th:if="${i!=totalpage}" aria-hidden="true">&raquo;</span>
+										<span th:if="${i!=totalpage}" class="sr-only">Next</span>
+								</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="master_layout :: myfooter" id="footer"></footer>
+</body>
+</html>

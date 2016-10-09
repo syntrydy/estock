@@ -25,7 +25,7 @@
 			<column name="phonenumber" value="+237 696534361" />
 			<column name="website" value="http://www.atlanciafashion.com" />
 			<column name="isactive" valueBoolean="true" />
-			<column name="version" type="1" />
+			<column name="version" value="0" />
 		</insert>
 		<createTable tableName="category">
 			<column autoIncrement="true" name="id" type="int8">
@@ -53,6 +53,64 @@
 			<column name="currentDate" type="datetime" />
 			<column name="version" type="int8" />
 		</createTable>
+		<!-- insert first location -->
+		<createTable tableName="location">
+			<column autoIncrement="true" name="id" type="int8">
+				<constraints primaryKey="true" primaryKeyName="location_pkey"
+					nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(255)" />
+			<column name="shop_id" type="int8">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="int8" />
+		</createTable>
+		<addForeignKeyConstraint baseColumnNames="shop_id"
+			baseTableName="location" constraintName="fk_location_shop_id"
+			deferrable="true" initiallyDeferred="true" referencedColumnNames="id"
+			referencedTableName="shop" />
+		<insert tableName="location">
+			<column name="name" value="Location One" />
+			<column name="code" value="LOC-01" />
+			<column name="description" value="My first location" />
+			<column name="shop_id" valueNumeric="1" />
+			<column name="version" valueNumeric="1" />
+		</insert>
+		<!-- init shelves -->
+		<createTable tableName="shelf">
+			<column autoIncrement="true" name="id" type="int8">
+				<constraints primaryKey="true" primaryKeyName="shelf_pkey"
+					nullable="false" />
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="code" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="description" type="varchar(255)" />
+			<column name="location_id" type="int8">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="int8" />
+		</createTable>
+		<addForeignKeyConstraint baseColumnNames="location_id"
+			baseTableName="shelf" constraintName="fk_shelf_location_id"
+			deferrable="true" initiallyDeferred="true" referencedColumnNames="id"
+			referencedTableName="location" />
+		<insert tableName="shelf">
+			<column name="name" value="Shelf One" />
+			<column name="code" value="Shelf-B12" />
+			<column name="description" value="My first shelf" />
+			<column name="location_id" valueNumeric="1" />
+			<column name="version" valueNumeric="1" />
+		</insert>
 
 	</changeSet>
 </databaseChangeLog>

@@ -45,9 +45,6 @@ public class Location implements Serializable {
 	public void setShelves(List<Shelf> shelves) {
 		this.shelves = shelves;
 	}
-
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -84,12 +81,13 @@ public class Location implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return super.toString();
+		return this.name+ " "+this.code+" "+this.description+" "+ this.locationshop.getId();
 	}
 	public void update(Location location) {
 		this.name = location.getName();
 		this.description = location.getDescription();
 		this.code = location.getCode();
+		this.locationshop=location.getLocationshop();
 	}
 
 	

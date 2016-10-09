@@ -17,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.gasmyr.it.model.Location;
 import com.gasmyr.it.service.location.LocationService;
+import com.gasmyr.it.service.shop.ShopService;
 
 @Controller
 public class LocationController {
 
 	@Autowired
 	LocationService locationService;
+	@Autowired
+	ShopService shopService;
 
 	@RequestMapping(value = "/LocationListPage", method = RequestMethod.GET)
 	public String goToLocationListPage(@RequestParam(defaultValue = "0") int page,
@@ -41,12 +44,14 @@ public class LocationController {
 	@RequestMapping(value = "/LocationAddPage", method = RequestMethod.GET)
 	public String goToLocationAddPage(Model model) {
 		model.addAttribute("location", new Location());
+		model.addAttribute("shops", shopService.findAll());
 		return "/LocationAddPage";
 	}
 
 	@RequestMapping(value = "/updatelocation", method = RequestMethod.GET)
 	public String goToLocationUpdatePage(@RequestParam long id, Model model) {
 		model.addAttribute("location", locationService.findById(id));
+		model.addAttribute("shops", shopService.findAll());
 		return "/LocationUpdatePage";
 	}
 

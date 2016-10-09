@@ -42,9 +42,14 @@ public class LocationServiceImpl implements LocationService {
 
 	@Override
 	public void update(Long id, Location location) {
+		System.out.println("===============================++++++++>");
+		System.out.println(location);
+		System.out.println("===============================++++++++>");
 		Location oldLocation = locationRepository.findOne(id);
 		if (oldLocation != null) {
 			oldLocation.update(location);
+			System.out.println(oldLocation);
+			System.out.println("===============================++++++++>");
 			locationRepository.save(oldLocation);
 		}
 

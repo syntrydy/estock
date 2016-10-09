@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master_layout :: myhead">
+<title>MyShop</title>
+</head>
+<body class="mainblock">
+	<div class="fixed-sn graphite-skin">
+		<header th:replace="master_layout :: myheader"></header>
+	</div>
+	<div class="container-fluid">
+		<div class="card col-md-12 text-xs-center">
+			<h3 class="card-header special-color white-text">Edit
+				location information</h3>
+			<div class="card-block">
+				<form action="#" th:action="@{/location/{id}/update(id=${location.id})}"
+					th:object="${location}" method="post">
+					<!--First row-->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="md-form">
+								<!--Shop selection-->
+								<select class="mdb-select colorful-select dropdown-primary" name="location.locationshop" th:field="*{locationshop}">
+									<option th:each="shop:${shops}" th:text="${shop.name}" th:value="${shop.id}" th:selected="(${shop.id} == *{locationshop.id})"></option>
+								</select> <label>Select a shop</label>
+								<!--/Shop selection-->
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="md-form">
+								<input type="text" th:field="*{name}" id="name"
+									required="required" class="form-control validate"></input> <label
+									for="name" data-error="wrong" data-success="right">location
+									name</label>
+							</div>
+						</div>
+					</div>
+					<!--/.First row-->
+					<!-- second row -->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="md-form">
+								<input type="text" th:field="*{code}" id="code"
+									class="form-control validate"></input> <label for="code"
+									data-error="wrong" data-success="right">location code</label>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="md-form">
+								<textarea type="text" th:field="*{description}" id="description"
+									class="form-control validate md-textarea"></textarea>
+								<label for="description" data-error="wrong" data-success="right">description</label>
+							</div>
+						</div>
+					</div>
+					<!-- /second row -->
+					<hr />
+					<div class="row container spacer">
+						<div class="col-md-6">
+							<a th:href="@{/LocationListPage}"
+								class="fa fa-list btn btn-primary btn-rounded special-color">&nbsp;Back</a>
+						</div>
+						<div class="col-md-6">
+							<button type="submit"
+								class="fa fa-save btn btn-primary btn-rounded special-color">&nbsp;Update</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="master_layout :: myfooter" id="footer"></footer>
+	<script>
+		$(document).ready(function() {
+			$('.mdb-select').material_select();
+		});
+	</script>
+</body>
+</html>
