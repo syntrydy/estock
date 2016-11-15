@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master_layout :: myhead">
+<title>MyShop</title>
+</head>
+<body class="mainblock">
+	<div class="fixed-sn graphite-skin">
+		<header th:replace="master_layout :: myheader"></header>
+	</div>
+	<div class="container-fluid">
+		<div class="card col-md-12 text-xs-center">
+			<h3 class="card-header special-color white-text">Filled the new
+				shop information</h3>
+			<div class="card-block">
+				<form action="#" th:action="@{/shop/create}" th:object="${shop}"
+					method="post" enctype="multipart/form-data">
+					<!--First row-->
+					<div class="row">
+						<div class="col-md-4">
+							<div class="md-form">
+								<input type="text" th:field="*{name}" id="name"
+									required="required" class="form-control validate"></input> <label
+									for="name" data-error="wrong" data-success="right">Shop
+									name</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="md-form">
+								<input type="text" th:field="*{description}" id="description"
+									class="form-control validate"></input> <label for="description"
+									data-error="wrong" data-success="right">description</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="md-form">
+								<input type="email" th:field="*{email}" id="email"
+									class="form-control validate"></input> <label for="email"
+									data-error="wrong" data-success="right">shop email</label>
+							</div>
+						</div>
+					</div>
+					<!--/.First row-->
+					<!-- second row -->
+					<div class="row">
+						<div class="col-md-4">
+							<div class="md-form">
+								<input type="tel" th:field="*{phonenumber}" id="phonenumber"
+									class="form-control validate"></input> <label for="phonenumber"
+									data-error="wrong" data-success="right">phone</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="md-form">
+								<input type="url" th:field="*{website}" id="website"
+									class="form-control validate"></input> <label for="website"
+									data-error="wrong" data-success="right">web site</label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="switch">
+								<label for="checkbox">Is active ?
+									&nbsp;&nbsp;&nbsp;&nbsp;</label> <label> Off <input
+									type="checkbox" name="isactive" th:value="true"
+									th:checked="*{isactive}" id="isactive" /> <span class="lever"></span>
+									On
+								</label>
+							</div>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-6">
+							<div class="md-form">
+								<div class="file-field">
+									<div class="btn default-color-dark">
+										<span>Chooce a picture</span> <input
+											type="file" name="files"   />
+									</div>
+									<div class="file-path-wrapper">
+										<input th:field="*{logo}" id="logo" class="file-path validate" type="text"
+											placeholder="Upload shop image" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
+					<!-- /second row -->
+					<hr />
+					<div class="row container spacer">
+						<div class="col-md-4">
+							<a th:href="@{/ShopListPage}"
+								class="fa fa-list btn btn-primary btn-rounded special-color">&nbsp;Back</a>
+						</div>
+						<div class="col-md-4">
+							<button type="reset"
+								class="fa fa-history btn special-color btn-rounded btn-primary">&nbsp;Reset</button>
+						</div>
+						<div class="col-md-4">
+							<button type="submit"
+								class="fa fa-save btn btn-primary btn-rounded special-color">&nbsp;Save</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer th:replace="master_layout :: myfooter" id="footer"></footer>
+</body>
+</html>

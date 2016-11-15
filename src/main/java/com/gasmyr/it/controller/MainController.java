@@ -13,12 +13,6 @@ public class MainController {
 	public String login(Model model) {
 		return "login";
 	}
-
-	@RequestMapping("/home")
-	public String home(Model model) {
-		return "home";
-	}
-
 	@RequestMapping("/test")
 	public String test(Model model) {
 		return "master_layout";

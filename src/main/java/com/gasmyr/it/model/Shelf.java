@@ -75,7 +75,13 @@ public class Shelf implements Serializable {
 	public void setLocationshelf(Location locationshelf) {
 		this.locationshelf = locationshelf;
 	}
-	
-	
+
+	public void update(Shelf shelf) {
+		this.name = shelf.getName();
+		this.code = shelf.getCode();
+		this.description = shelf.getDescription();
+		this.locationshelf = shelf.getLocationshelf();
+
+	}
 
 }
